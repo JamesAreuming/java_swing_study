@@ -41,7 +41,7 @@ public class ContentPaneEx extends JFrame implements ActionListener{
 		contentPane.setBackground(Color.PINK);
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 		setContentPane(contentPane); // JFrame안에 넣어라
-		contentPane.setLayout(new FlowLayout(FlowLayout.CENTER, 5, 5));
+		contentPane.setLayout(new FlowLayout(FlowLayout.CENTER, 20, 20));
 		
 		btnOK = new JButton("OK");
 		btnOK.addActionListener(this);
