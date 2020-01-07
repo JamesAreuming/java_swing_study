@@ -15,26 +15,8 @@ public class LayoutMain extends JFrame implements ActionListener {
 
 	private JPanel contentPane;
 	private JButton btnFlowlayout;
+	private JButton btnlborderayout;
 
-	/**
-	 * Launch the application.
-	 */
-	public static void main(String[] args) {
-		EventQueue.invokeLater(new Runnable() {
-			public void run() {
-				try {
-					LayoutMain frame = new LayoutMain();
-					frame.setVisible(true);
-				} catch (Exception e) {
-					e.printStackTrace();
-				}
-			}
-		});
-	}
-
-	/**
-	 * Create the frame.
-	 */
 	public LayoutMain() {
 		initialize();
 	}
@@ -50,15 +32,26 @@ public class LayoutMain extends JFrame implements ActionListener {
 		btnFlowlayout = new JButton("Flowlayout");
 		btnFlowlayout.addActionListener(this);
 		contentPane.add(btnFlowlayout);
+		
+		btnlborderayout = new JButton("borderlayout");
+		btnlborderayout.addActionListener(this);
+		contentPane.add(btnlborderayout);
 	}
 
 	public void actionPerformed(ActionEvent e) {
+		if (e.getSource() == btnlborderayout) {
+			btnlborderayoutActionPerformed(e);
+		}
 		if (e.getSource() == btnFlowlayout) {
 			btnFlowlayoutActionPerformed(e);
 		}
 	}
 	protected void btnFlowlayoutActionPerformed(ActionEvent e) {
 		FlowLayoutEx frame = new FlowLayoutEx();
+		frame.setVisible(true);
+	}
+	protected void btnlborderayoutActionPerformed(ActionEvent e) {
+		BorderLayoutEx frame = new BorderLayoutEx();
 		frame.setVisible(true);
 	}
 }
