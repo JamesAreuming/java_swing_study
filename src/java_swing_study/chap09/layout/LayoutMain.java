@@ -1,57 +1,89 @@
 package java_swing_study.chap09.layout;
 
-import java.awt.BorderLayout;
 import java.awt.EventQueue;
+import java.awt.GridLayout;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 
+import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
-import java.awt.GridLayout;
-import javax.swing.JButton;
-import java.awt.event.ActionListener;
-import java.awt.event.ActionEvent;
+import javax.swing.border.TitledBorder;
 
+@SuppressWarnings("serial")
 public class LayoutMain extends JFrame implements ActionListener {
 
 	private JPanel contentPane;
-	private JButton btnFlowlayout;
-	private JButton btnlborderayout;
+	private JButton btnFlowLayout;
+	private JButton btnBorderLayout;
+	private JButton btnGridLayout;
 
+	/**
+	 * Launch the application.
+	 */
+	public static void main(String[] args) {
+		EventQueue.invokeLater(new Runnable() {
+			public void run() {
+				try {
+					LayoutMain frame = new LayoutMain();
+					frame.setVisible(true);
+				} catch (Exception e) {
+					e.printStackTrace();
+				}
+			}
+		});
+	}
+
+	/**
+	 * Create the frame.
+	 */
 	public LayoutMain() {
 		initialize();
 	}
 	private void initialize() {
-		setTitle("배치레이아웃해제");
+		setTitle("배치레이아웃예제");
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		setBounds(100, 100, 450, 300);
+		setBounds(100, 100, 450, 144);
 		contentPane = new JPanel();
-		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
+		contentPane.setBorder(new TitledBorder(null, "레이아웃 예제", TitledBorder.LEADING, TitledBorder.TOP, null, null));
 		setContentPane(contentPane);
 		contentPane.setLayout(new GridLayout(1, 0, 0, 0));
 		
-		btnFlowlayout = new JButton("Flowlayout");
-		btnFlowlayout.addActionListener(this);
-		contentPane.add(btnFlowlayout);
+		btnFlowLayout = new JButton("FlowLayout");
+		btnFlowLayout.addActionListener(this);
+		contentPane.add(btnFlowLayout);
 		
-		btnlborderayout = new JButton("borderlayout");
-		btnlborderayout.addActionListener(this);
-		contentPane.add(btnlborderayout);
+		btnBorderLayout = new JButton("BorderLayout");
+		btnBorderLayout.addActionListener(this);
+		contentPane.add(btnBorderLayout);
+		
+		btnGridLayout = new JButton("GridLayout");
+		btnGridLayout.addActionListener(this);
+		contentPane.add(btnGridLayout);
 	}
 
 	public void actionPerformed(ActionEvent e) {
-		if (e.getSource() == btnlborderayout) {
-			btnlborderayoutActionPerformed(e);
+		if (e.getSource() == btnGridLayout) {
+			btnGridLayoutActionPerformed(e);
 		}
-		if (e.getSource() == btnFlowlayout) {
-			btnFlowlayoutActionPerformed(e);
+		if (e.getSource() == btnBorderLayout) {
+			btnBorderLayoutActionPerformed(e);
+		}
+		if (e.getSource() == btnFlowLayout) {
+			btnFlowLayoutActionPerformed(e);
 		}
 	}
-	protected void btnFlowlayoutActionPerformed(ActionEvent e) {
+	protected void btnFlowLayoutActionPerformed(ActionEvent e) {
 		FlowLayoutEx frame = new FlowLayoutEx();
 		frame.setVisible(true);
 	}
-	protected void btnlborderayoutActionPerformed(ActionEvent e) {
+	protected void btnBorderLayoutActionPerformed(ActionEvent e) {
 		BorderLayoutEx frame = new BorderLayoutEx();
+		frame.setVisible(true);
+	}
+	protected void btnGridLayoutActionPerformed(ActionEvent e) {
+		GridLayoutEx frame = new GridLayoutEx();
 		frame.setVisible(true);
 	}
 }
