@@ -11,16 +11,18 @@ import javax.swing.JPanel;
 import javax.swing.border.TitledBorder;
 
 import java_swing_study.chap09.layout.openchallenge.OpenChallengeEx;
+import java.awt.FlowLayout;
 
 @SuppressWarnings("serial")
 public class LayoutMain extends JFrame implements ActionListener {
 
 	private JPanel contentPane;
-	private JButton btnFlowLayout;
-	private JButton btnBorderLayout;
-	private JButton btnGridLayout;
-	private JButton Openchallenge;
 	private Object object;
+	private JButton button;
+	private JButton button_1;
+	private JButton button_2;
+	private JButton btnOpenchallenge;
+	private JButton button_4;
 
 	/**
 	 * Launch the application.
@@ -47,57 +49,36 @@ public class LayoutMain extends JFrame implements ActionListener {
 	private void initialize() {
 		setTitle("배치레이아웃예제");
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		setBounds(100, 100, 450, 273);
+		setBounds(100, 100, 363, 296);
 		contentPane = new JPanel();
 		contentPane.setBorder(new TitledBorder(null, "레이아웃 예제", TitledBorder.LEADING, TitledBorder.TOP, null, null));
 		setContentPane(contentPane);
 		contentPane.setLayout(new GridLayout(1, 0, 0, 0));
 		
-		btnFlowLayout = new JButton("FlowLayout");
-		btnFlowLayout.addActionListener(this);
-		contentPane.add(btnFlowLayout);
+		button = new JButton("FlowLayout");
+		contentPane.add(button);
 		
-		btnBorderLayout = new JButton("BorderLayout");
-		btnBorderLayout.addActionListener(this);
-		contentPane.add(btnBorderLayout);
+		button_1 = new JButton("BorderLayout");
+		contentPane.add(button_1);
 		
-		btnGridLayout = new JButton("GridLayout");
-		btnGridLayout.addActionListener(this);
-		contentPane.add(btnGridLayout);
+		button_2 = new JButton("GridLayout");
+		contentPane.add(button_2);
 		
-		Openchallenge = new JButton("오픈챌린지");
-		Openchallenge.addActionListener(this);
-		contentPane.add(Openchallenge);
+		button_4 = new JButton("AbsoluteLayout");
+		button_4.addActionListener(this);
+		contentPane.add(button_4);
+		
+		btnOpenchallenge = new JButton("OpenChallenge");
+		contentPane.add(btnOpenchallenge);
 	}
 
 	public void actionPerformed(ActionEvent e) {
-		if (e.getSource() == Openchallenge) {
-			OpenchallengeActionPerformed(e);
-		}
-		if (e.getSource() == btnGridLayout) {
-			btnGridLayoutActionPerformed(e);
-		}
-		if (e.getSource() == btnBorderLayout) {
-			btnBorderLayoutActionPerformed(e);
-		}
-		if (e.getSource() == btnFlowLayout) {
-			btnFlowLayoutActionPerformed(e);
+		if (e.getSource() == button_4) {
+			button_4ActionPerformed(e);
 		}
 	}
-	protected void btnFlowLayoutActionPerformed(ActionEvent e) {
-		FlowLayoutEx frame = new FlowLayoutEx();
-		frame.setVisible(true);
-	}
-	protected void btnBorderLayoutActionPerformed(ActionEvent e) {
-		BorderLayoutEx frame = new BorderLayoutEx();
-		frame.setVisible(true);
-	}
-	protected void btnGridLayoutActionPerformed(ActionEvent e) {
-		GridLayoutEx frame = new GridLayoutEx();
-		frame.setVisible(true);
-	}
-	protected void OpenchallengeActionPerformed(ActionEvent e) {
-		OpenChallengeEx frame = new OpenChallengeEx();
-		frame.setVisible(true);
+	protected void button_4ActionPerformed(ActionEvent e) {
+		AbsoluteLayoutEx frame = new AbsoluteLayoutEx();
+		contentPane.add(frame);
 	}
 }
