@@ -29,6 +29,8 @@ public class GridLayoutEx extends JFrame {
 	}
 	private void initialize() {
 		setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
+		//setSize(329, 224);
+		//setLocation(100, 100);
 		setBounds(100, 100, 450, 300);
 		contentPane = new JPanel();
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
